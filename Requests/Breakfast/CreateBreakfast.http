@@ -1,4 +1,4 @@
-POST http://localhost:5286/breakfasts
+POST http://localhost:5293/breakfasts
 Content-Type: application/json
 
 {
@@ -19,4 +19,4 @@ Content-Type: application/json
 
 ###
 
-GET https://localhost:7094/Breakfasts/e35daaba-5a9e-43a2-9305-3dead8296fe0
+GET http://localhost:5293/Breakfasts/e35daaba-5a9e-43a2-9305-3dead8296fe0
