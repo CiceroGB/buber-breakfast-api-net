@@ -16,20 +16,21 @@ public class BreakfastController : ControllerBase
     [HttpGet("/breakfasts/{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
     {
-        return Ok(id);
-    }
+        var response = new { msg = "ok"};
+        return Ok(response);
+}
 
-    [HttpPut("/breakfasts/{id:guid}")]
-    public IActionResult UpdateBreakfast(Guid id, UpsertBreakfastRequest request)
-    {
-        return Ok(request);
-    }
+[HttpPut("/breakfasts/{id:guid}")]
+public IActionResult UpdateBreakfast(Guid id, UpsertBreakfastRequest request)
+{
+    return Ok(request);
+}
 
-    [HttpDelete("/breakfasts/{id:guid}")]
-    public IActionResult DeleteBreakfast(Guid id)
-    {
-        return Ok(id);
-    }
+[HttpDelete("/breakfasts/{id:guid}")]
+public IActionResult DeleteBreakfast(Guid id)
+{
+    return Ok(id);
+}
 
 
 }

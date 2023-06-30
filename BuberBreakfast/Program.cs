@@ -9,6 +9,13 @@ var app = builder.Build();
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
     app.MapControllers();
+    app.MapFallback(async context =>
+{
+    context.Response.StatusCode = StatusCodes.Status404NotFound;
+    await context.Response.WriteAsJsonAsync(new { message = "Page not found" });
+});
+
+    app.Run();
     app.Run();
 }
 // var builder = WebApplication.CreateBuilder(args);
