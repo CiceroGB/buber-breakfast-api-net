@@ -16,7 +16,6 @@ var app = builder.Build();
 });
 
     app.Run();
-    app.Run();
 }
 // var builder = WebApplication.CreateBuilder(args);
 
