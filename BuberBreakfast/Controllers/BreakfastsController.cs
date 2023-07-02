@@ -8,9 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace BuberBreakfast.Controllers;
 
 
-[ApiController]
-[Route("[controller]")]
-public class BreakfastsController : ControllerBase
+
+public class BreakfastsController : ApiController
 {
     private readonly IBreakfastService _breakfastService;
 
@@ -61,16 +60,9 @@ public class BreakfastsController : ControllerBase
 
         ErrorOr<Breakfast> getBreakfastResult = _breakfastService.GetBreakfast(id);
 
-        if (getBreakfastResult.IsError && getBreakfastResult.FirstError == Errors.Breakfast.NotFound)
-        {
-            return NotFound();
-        }
-
-        var breakfast = getBreakfastResult.Value;
-
-        var response = MapBreakfastResponse(breakfast);
-
-        return Ok(response);
+        return getBreakfastResult.Match(
+           breakfast => Ok(MapBreakfastResponse(breakfast)),
+           errors => Problem(errors));
     }
 
     [HttpPut("{id:guid}")]
