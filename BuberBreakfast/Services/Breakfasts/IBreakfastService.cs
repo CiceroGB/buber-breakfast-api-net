@@ -10,5 +10,7 @@ public interface IBreakfastService
 
     Breakfast GetBreakfast(Guid id);
 
+    Breakfast UpsertBreakfast(Breakfast breakfast);
+    void DeleteBreakfast(Guid id);
 
 }
