@@ -2,8 +2,8 @@ POST http://localhost:5293/breakfasts
 Content-Type: application/json
 
 {
-    "name": "V",
-    "description": "",
+    "name": "Bread",
+    "description": "food food food food food humm fooooood humm fooooood",
     "startDateTime": "2022-04-08T08:00:00",
     "endDateTime": "2022-04-08T11:00:00",
     "savory": [
@@ -19,4 +19,4 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:5293/breakfasts/32051e50-680b-49a4-b9f3-c38a921c929c
+GET http://localhost:5293/breakfasts/dab08473-0f28-404c-bfa9-8577e5fd3ab5
