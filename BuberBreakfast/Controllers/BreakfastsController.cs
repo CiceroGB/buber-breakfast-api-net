@@ -68,16 +68,7 @@ public class BreakfastsController : ControllerBase
 
         var breakfast = getBreakfastResult.Value;
 
-        var response = new BreakfastResponse(
-                     breakfast.Id,
-                     breakfast.Name,
-                     breakfast.Description,
-                     breakfast.StartDateTime,
-                     breakfast.EndDateTime,
-                     breakfast.LastModifiedDateTime,
-                     breakfast.Savory,
-                     breakfast.Sweet
-                     );
+        var response = MapBreakfastResponse(breakfast);
 
         return Ok(response);
     }
@@ -108,6 +99,19 @@ public class BreakfastsController : ControllerBase
     {
         _breakfastService.DeleteBreakfast(id);
         return NoContent();
+    }
+
+    private static BreakfastResponse MapBreakfastResponse(Breakfast breakfast)
+    {
+        return new BreakfastResponse(
+            breakfast.Id,
+            breakfast.Name,
+            breakfast.Description,
+            breakfast.StartDateTime,
+            breakfast.EndDateTime,
+            breakfast.LastModifiedDateTime,
+            breakfast.Savory,
+            breakfast.Sweet);
     }
 
 
