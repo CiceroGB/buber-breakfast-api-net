@@ -4,7 +4,7 @@ using BuberBreakfast.Services.Breakfasts;
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddControllers();
-      builder.Services.AddScoped<IBreakfastService, BreakfastService>();
+    builder.Services.AddScoped<IBreakfastService, BreakfastService>();
 }
 
 var app = builder.Build();
@@ -12,11 +12,11 @@ var app = builder.Build();
     app.UseExceptionHandler("/error");
     app.UseHttpsRedirection();
     app.MapControllers();
-    app.MapFallback(async context =>
-{
-    context.Response.StatusCode = StatusCodes.Status404NotFound;
-    await context.Response.WriteAsJsonAsync(new { message = "Page not found" });
-});
+//     app.MapFallback(async context =>
+// {
+//     context.Response.StatusCode = StatusCodes.Status404NotFound;
+//     await context.Response.WriteAsJsonAsync(new { message = "Page not found" });
+// });
 
     app.Run();
 }
